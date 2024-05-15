@@ -1,6 +1,7 @@
 package conf
 
 import (
+	"back_end/object"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -37,5 +38,14 @@ func (m *MySQL) initDB() *gorm.DB {
 	if err != nil {
 		panic(err)
 	}
+	
+	err = db.AutoMigrate(&object.User{})
+	err = db.AutoMigrate(&object.Post{})
+	err = db.AutoMigrate(&object.Comment{})
+	
+	if err != nil {
+		panic(err)
+	}
+	
 	return db
 }

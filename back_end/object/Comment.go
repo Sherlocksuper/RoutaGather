@@ -3,6 +3,8 @@ package object
 type Comment struct {
 	OrmModal
 	PostID  uint   `json:"postId"`
-	Author  string `gorm:"type:varchar(100)" json:"author"`
-	Content string `gorm:"type:text" json:"content"`
+	Post    Post   `json:"post" gorm:"foreignKey:PostID"`
+	UserID  uint   `json:"userId"`
+	User    User   `json:"user" gorm:"foreignKey:UserID"`
+	Content string `json:"content" gorm:"type:text"`
 }

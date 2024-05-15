@@ -8,6 +8,7 @@ type User struct {
 	OrmModal
 	Username          string    `gorm:"type:varchar(100)" json:"username"`
 	Email             string    `gorm:"type:varchar(100)" json:"email"`
+	PassWord          string    `gorm:"type:varchar(100)" json:"password"`
 	Avatar            string    `gorm:"type:varchar(100)" json:"avatar"`
 	Role              string    `gorm:"type:varchar(100)" json:"role"`
 	CreatedAt         time.Time `json:"createdAt"`

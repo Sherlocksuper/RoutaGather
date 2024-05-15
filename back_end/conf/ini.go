@@ -11,7 +11,17 @@ type App struct {
 	Redis *Redis
 }
 
-func (appConf App) init() {
+var AppConf = &App{
+	MySql: &MySQL{},
+	Redis: &Redis{},
+	Db:    nil,
+}
+
+func init() {
+	AppConf.init()
+}
+
+func (appConf *App) init() {
 	err := godotenv.Load()
 	if err != nil {
 		panic(err)
